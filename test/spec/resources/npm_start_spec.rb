@@ -34,5 +34,5 @@ describe PoiseApplicationJavascript::Resources::NpmStart do
   end
 
   it { is_expected.to enable_application_npm_start('/test').with(parent_javascript: chef_run.application_javascript('ver')) }
-  it { is_expected.to enable_poise_service('/test').with(command: '/node /npm start', environment: {'PATH' => "/:#{ENV['PATH']}"}) }
+  it { is_expected.to enable_poise_service('/test').with(service_name: 'test', command: '/node /npm start', environment: {'PATH' => "/:#{ENV['PATH']}"}) }
 end
