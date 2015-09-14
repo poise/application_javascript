@@ -28,7 +28,72 @@ Chef 12 or newer is required.
 
 ## Resources
 
-TODO
+### `application_javascript`
+
+The `application_javascript` resource installs a JavaScript runtime for the
+deployment.
+
+```ruby
+application '/srv/myapp' do
+  javascript '3'
+end
+```
+
+All actions and properties are the same as the [`javascript_runtime` resource](https://github.com/poise/poise-javascript#javascript_runtime).
+
+### `application_javascript_javascript_service`
+
+The `application_javascript_javascript_service` resource creates a service for a
+JavaScript command.
+
+```ruby
+application '/srv/myapp' do
+  javascript_service 'main.js'
+end
+```
+
+#### Actions
+
+* `:enable` – Create, enable and start the service. *(default)*
+* `:disable` – Stop, disable, and destroy the service.
+* `:start` – Start the service.
+* `:stop` – Stop the service.
+* `:restart` – Stop and then start the service.
+* `:reload` – Send the configured reload signal to the service.
+
+#### Properties
+
+* `command` – Command to run. *(name attribute)*
+* `path` – Base path for the application. *(default: application path)*
+* `service_name` – Name of the service to create. *(default: auto-detect)*
+# `user` – User to run the service as. *(default: application owner)*
+
+### `npm_start`
+
+The `application_npm_start` resource creates a service for a JavaScript
+application using `npm start`.
+
+```ruby
+application '/srv/myapp' do
+  npm_start
+end
+```
+
+#### Actions
+
+* `:enable` – Create, enable and start the service. *(default)*
+* `:disable` – Stop, disable, and destroy the service.
+* `:start` – Start the service.
+* `:stop` – Stop the service.
+* `:restart` – Stop and then start the service.
+* `:reload` – Send the configured reload signal to the service.
+
+#### Properties
+
+* `path` – Base path for the application. *(default: name attribute)*
+* `command` – NPM subcommand to run. *(default: start)*
+* `service_name` – Name of the service to create. *(default: auto-detect)*
+# `user` – User to run the service as. *(default: application owner)*
 
 ## Sponsors
 

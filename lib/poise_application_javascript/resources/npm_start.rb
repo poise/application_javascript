@@ -28,6 +28,20 @@ module PoiseApplicationJavascript
     # (see NpmStart::Resource)
     # @since 1.0.0
     module NpmStart
+      # An `application_npm_start` resource to create a service for a Javascript
+      # application using `npm start`.
+      #
+      # @provides application_npm_start
+      # @action enable
+      # @action disable
+      # @action start
+      # @action stop
+      # @action restart
+      # @action reload
+      # @example
+      #   application '/app' do
+      #     npm_start
+      #   end
       class Resource < Chef::Resource
         include PoiseApplicationJavascript::ServiceMixin
         provides(:application_npm_start)
@@ -38,6 +52,10 @@ module PoiseApplicationJavascript
         attribute(:command, kind_of: [String, Array], default: 'start')
       end
 
+      # The default provider for `application_npm_start`.
+      #
+      # @see Resource
+      # @provides application_npm_start
       class Provider < Chef::Provider
         include PoiseApplicationJavascript::ServiceMixin
         provides(:application_npm_start)
