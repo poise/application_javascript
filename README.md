@@ -68,7 +68,7 @@ end
 * `service_name` – Name of the service to create. *(default: auto-detect)*
 # `user` – User to run the service as. *(default: application owner)*
 
-### `npm_start`
+### `application_npm_start`
 
 The `application_npm_start` resource creates a service for a JavaScript
 application using `npm start`.
