@@ -28,7 +28,7 @@ module PoiseApplicationJavascript
       # inside an Application cookbook deployment.
       #
       # @provides application_javascript
-      # @provides application_javascript_javascript_runtime
+      # @provides application_javascript_runtime
       # @action install
       # @action uninstall
       # @example
@@ -39,7 +39,7 @@ module PoiseApplicationJavascript
         include PoiseApplicationJavascript::AppMixin
         provides(:application_javascript)
         # Need the double javascript for application resource rewriting.
-        provides(:application_javascript_javascript_runtime)
+        provides(:application_javascript_runtime)
         container_default(false)
         subclass_providers!
 

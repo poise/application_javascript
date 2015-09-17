@@ -28,7 +28,6 @@ module PoiseApplicationJavascript
       # Application cookbook deployment.
       #
       # @provides application_javascript_execute
-      # @provides application_javascript_javascript_execute
       # @action run
       # @example
       #   application '/srv/myapp' do
@@ -37,8 +36,6 @@ module PoiseApplicationJavascript
       class Resource < PoiseJavascript::Resources::JavascriptExecute::Resource
         include PoiseApplicationJavascript::AppMixin
         provides(:application_javascript_execute)
-        provides(:application_javascript_javascript_execute)
-
         def initialize(*args)
           super
           # Clear some instance variables so my defaults work.
@@ -67,10 +64,8 @@ module PoiseApplicationJavascript
       #
       # @see Resource
       # @provides application_javascript_execute
-      # @provides application_javascript_javascript_execute
       class Provider < PoiseJavascript::Resources::JavascriptExecute::Provider
         provides(:application_javascript_execute)
-        provides(:application_javascript_javascript_execute)
 
         private
 
