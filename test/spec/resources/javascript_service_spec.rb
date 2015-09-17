@@ -24,5 +24,5 @@ describe PoiseApplicationJavascript::Resources::JavascriptService do
     end
   end
 
-  it { is_expected.to enable_application_javascript_javascript_service('main.js').with(parent_javascript: chef_run.application_javascript('ver'), path: '/test', command: 'main.js') }
+  it { is_expected.to enable_application_javascript_service('main.js').with(parent_javascript: chef_run.application_javascript('ver'), path: '/test', command: 'main.js') }
 end

@@ -28,6 +28,7 @@ module PoiseApplicationJavascript
     module JavascriptService
       class Resource < Chef::Resource
         include PoiseApplicationJavascript::ServiceMixin
+        provides(:application_javascript_service)
         provides(:application_javascript_javascript_service)
 
         # @!attribute command
@@ -43,6 +44,7 @@ module PoiseApplicationJavascript
 
       class Provider < Chef::Provider
         include PoiseApplicationJavascript::ServiceMixin
+        provides(:application_javascript_service)
         provides(:application_javascript_javascript_service)
 
         private

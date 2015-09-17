@@ -40,6 +40,22 @@ module PoiseApplicationJavascript
         provides(:application_node_package)
         subclass_providers!
 
+        def initialize(*args)
+          super
+          # For older Chef.
+          @resource_name = :application_node_package
+        end
+
+        # #!attribute group
+        #   Override the default group to be the app group if unspecified.
+        #   @return [String, Integer]
+        attribute(:group, kind_of: [String, Integer, NilClass], default: lazy { parent && parent.group })
+
+        # #!attribute user
+        #   Override the default user to be the app owner if unspecified.
+        #   @return [String, Integer]
+        attribute(:user, kind_of: [String, Integer, NilClass], default: lazy { parent && parent.owner })
+
         # @todo This should handle relative paths against parent.path.
       end
     end

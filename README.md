@@ -41,7 +41,7 @@ end
 
 All actions and properties are the same as the [`javascript_runtime` resource](https://github.com/poise/poise-javascript#javascript_runtime).
 
-### `application_javascript_javascript_service`
+### `application_javascript_service`
 
 The `application_javascript_javascript_service` resource creates a service for a
 JavaScript command.
@@ -67,6 +67,20 @@ end
 * `path` – Base path for the application. *(default: application path)*
 * `service_name` – Name of the service to create. *(default: auto-detect)*
 # `user` – User to run the service as. *(default: application owner)*
+
+### `application_node_package`
+
+The `application_node_package` resource installs NPM packages for the deployment.
+
+```ruby
+application '/srv/myapp' do
+  node_package 'grunt-cli'
+end
+```
+
+All actions and properties are the same as the [`node_package` resource](https://github.com/poise/poise-javascript#node_package),
+except that the `group` and `user` properties default to the application-level
+data if not specified.
 
 ### `application_npm_start`
 
