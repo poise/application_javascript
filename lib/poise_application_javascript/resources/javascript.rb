@@ -43,6 +43,12 @@ module PoiseApplicationJavascript
         container_default(false)
         subclass_providers!
 
+        # We want to run the base class version of this, not the one from the
+        # mixin. HULK SMASH.
+        def npm_binary
+          self.class.superclass.instance_method(:npm_binary).bind(self).call
+        end
+
         # Set this resource as the app_state's parent javascript.
         #
         # @api private
