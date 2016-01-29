@@ -14,7 +14,6 @@
 # limitations under the License.
 #
 
-name 'application_javascript_test'
-depends 'application_git'
-depends 'application_javascript'
-depends 'build-essential'
+eval_gemfile File.expand_path('../../../Gemfile', __FILE__)
+
+gem 'chef', '~> 12.0.3'
