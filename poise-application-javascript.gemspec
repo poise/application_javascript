@@ -26,8 +26,9 @@ Gem::Specification.new do |spec|
   spec.description = "A Chef cookbook for deploying server-side JavaScript application code."
   spec.summary = spec.description
   spec.homepage = 'https://github.com/poise/application_javascript'
-  spec.license = 'Apache 2.0'
+  spec.license = 'Apache-2.0'
   spec.metadata['halite_name'] = 'application_javascript'
+  spec.metadata['platforms'] = 'any'
 
   spec.files = `git ls-files`.split($/)
   spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
