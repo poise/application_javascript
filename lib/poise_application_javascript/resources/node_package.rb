@@ -56,7 +56,10 @@ module PoiseApplicationJavascript
         #   @return [String, Integer]
         attribute(:user, kind_of: [String, Integer, NilClass], default: lazy { parent && parent.owner })
 
-        # @todo This should handle relative paths against parent.path.
+        # @!attribute path
+        #   Override the default user to be the app owner if unspecified.
+        #   @return [String, nil, false]
+        attribute(:path, kind_of: [String, NilClass, FalseClass, default: lazy { parent && parent.path }])
       end
     end
   end
